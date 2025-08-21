@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CareerLog - Job Application Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>CareerLog</h1>
+    <div class="header-actions">
+        <input type="text" id="searchInput" placeholder="🔍 Search jobs...">
+        <button id="toggleDarkMode" class="toggle-btn">🌙</button>
+    </div>
+</header>
+
+<!-- Add Job Form -->
+<section id="addJobSection">
+    <h2>Add Job Application</h2>
+    <form id="jobForm">
+        <input type="hidden" id="jobId" />
+        <input type="text" id="company" placeholder="Company Name" required>
+        <input type="text" id="title" placeholder="Job Title" required>
+        <input type="url" id="link" placeholder="Job Link" required>
+        <input type="date" id="dateApplied" required>
+        <select id="status" required>
+            <option value="APPLIED">Applied</option>
+            <option value="UNDER_REVIEW">Under Review</option>
+            <option value="INTERVIEW">Interview</option>
+            <option value="OFFER">Offer</option>
+            <option value="REJECTED">Rejected</option>
+        </select>
+        <textarea id="notes" placeholder="Notes"></textarea>
+        <button type="submit">Save</button>
+    </form>
+</section>
+
+<!-- Applications List -->
+<section id="applicationsSection">
+    <h2>All Applications</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Company</th>
+            <th>Title</th>
+            <th>Date Applied</th>
+            <th>Status</th>
+            <th>Link</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody id="applicationsTable"></tbody>
+    </table>
+</section>
+
+<!-- Monthly Status Overview -->
+<section id="monthlyStatusSection">
+    <h2>Monthly Status Overview</h2>
+    <label for="monthSelect">Select Month:</label>
+    <select id="monthSelect"></select>
+    <button id="viewMonthlyBtn">View</button>
+
+    <div id="monthlySummary">
+        <canvas id="monthlyChart"></canvas>
+        <p id="monthlyTotal"></p>
+        <ul id="monthlyJobs"></ul>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+<script src="script.js"></script>
+</body>
+</html>
